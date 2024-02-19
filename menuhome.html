@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./menuhome.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=DM Sans:wght@400&display=swap"
+    />
+
+    <style>
+      @font-face {
+        :font-family: "Covik Sans";
+        src: url("/public/Covik-Sans-Regular.otf");
+        font-weight: 400;
+      }
+      @font-face {
+        :font-family: "Covik Sans";
+        src: url("/public/Covik-Sans-Medium.otf");
+        font-weight: 500;
+      }
+      @font-face {
+        :font-family: "Covik Sans";
+        src: url("/public/Covik-Sans-Bold.otf");
+        font-weight: 700;
+      }
+      @font-face {
+        :font-family: "Covik Sans";
+        src: url("/public/Covik-Sans-Semibold.otf");
+        font-weight: 600;
+      }
+      @font-face {
+        :font-family: "Covik Sans";
+        src: url("/public/Covik-Sans-Regular.otf");
+        font-weight: 900;
+      }
+      @font-face {
+        :font-family: "Chiffon";
+        src: url("/public/Chiffon.otf");
+        font-weight: 400;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="menuhome" data-animate-on-scroll>
+      <div class="primary-horizontal-logo-green-wrapper">
+        <img
+          class="primary-horizontal-logo-green-icon"
+          alt=""
+          src="./public/primaryhorizontallogogreen-2@2x.png"
+          id="drawerprimaryHorizontalLogoGreenImage"
+        />
+      </div>
+      <div class="sections">
+        <a class="about" href="./aboutus.html">about</a>
+        <div class="sections-child"></div>
+        <a class="about" href="./membership.html">membership</a>
+        <div class="sections-child"></div>
+        <a class="about" href="./partnerwithus.html">partner</a>
+        <div class="sections-child"></div>
+        <a class="about" href="./carshare.html">Car Share</a>
+        <div class="sections-child"></div>
+        <a class="about" href="./connect.html">connect</a>
+        <div class="sections-child"></div>
+        <a class="about" href="./faq.html">faq</a>
+        <div class="sections-child"></div>
+        <a class="about" href="./franchisehome.html">Franchise</a>
+      </div>
+    </div>
+
+    <script>
+      var drawerprimaryHorizontalLogoGreenImage = document.getElementById(
+        "drawerprimaryHorizontalLogoGreenImage"
+      );
+      if (drawerprimaryHorizontalLogoGreenImage) {
+        drawerprimaryHorizontalLogoGreenImage.addEventListener("click", function (e) {
+          window.location.href = "./index1.html";
+        });
+      }
+      var scrollAnimElements = document.querySelectorAll("[data-animate-on-scroll]");
+      var observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting || entry.intersectionRatio > 0) {
+              const targetElement = entry.target;
+              targetElement.classList.add("animate");
+              observer.unobserve(targetElement);
+            }
+          }
+        },
+        {
+          threshold: 0.15,
+        }
+      );
+      
+      for (let i = 0; i < scrollAnimElements.length; i++) {
+        observer.observe(scrollAnimElements[i]);
+      }
+      </script>
+  </body>
+</html>
